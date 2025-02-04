@@ -13,7 +13,7 @@ This repository contains Terraform code to spin up an EC2 Linux instance within 
    git clone <repository_url> cd <repository_name>
 
 2. Initialize Terraform:
-   terraform init
+   'terraform init
 
 3. Validate the Terraform configuration:
    terraform validate
