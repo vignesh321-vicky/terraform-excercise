@@ -10,19 +10,19 @@ This repository contains Terraform code to spin up an EC2 Linux instance within 
 
 ### Steps to Execute
 1. Clone the repository:
-   git clone <repository_url> cd <repository_name>
+   `git clone <repository_url> cd <repository_name>`
 
 2. Initialize Terraform:
-   'terraform init
+   `terraform init`
 
 3. Validate the Terraform configuration:
-   terraform validate
+   `terraform validate`
 
 4. Apply the Terraform plan:
-   terraform plan
+   `terraform plan`
 
 6.Apply the changes:
-  terraform -auto-approve
+  `terraform -auto-approve`
    
 5. To retrieve and display the public IP address ,you can define an output variable in your outputs.tf file
    
