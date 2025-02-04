@@ -15,30 +15,30 @@ This repository contains Terraform code to spin up an EC2 Linux instance within 
 2. Initialize Terraform:
    `terraform init`
 
-3. Validate the Terraform configuration:
-   `terraform validate`
-
-4. Apply the Terraform plan:
+3. Apply the Terraform plan:
    `terraform plan`
 
-6.Apply the changes:
-  `terraform -auto-approve`
+4.Apply the changes:
+  `terraform apply -auto-approve`
    
 5. To retrieve and display the public IP address ,you can define an output variable in your outputs.tf file
    
 6. Access the web server by navigating to `http://<public_ip>` in a browser.
 
-### Assumptions and Prerequisites
+### Assumptions 
 - The instance type used is `t2.micro`, which is covered under AWS Free Tier.
 - The default VPC and public subnet are used.
-- Security groups allow HTTP (port 80) and SSH (port 22) traffic.
-
-### Web Server Setup
-- The EC2 instance deploys a basic web server that serves an `index.html` page displaying `Hello, World!`.
+- The Terraform configuration uses dynamic blocks to create both the ingress and egress rules in the security group. This approach allows for more flexible and maintainable  
+  code when specifying rules for HTTP (port 80) and SSH (port 22) traffic.
 - The necessary packages are installed using a user data script.
+- A data block is used to filter and select the appropriate Amazon Machine Image (AMI) for launching the EC2 instance. This ensures that the latest or most suitable AMI is used 
+  based on predefined filters.
+- GitHub Actions is integrated into the repository to validate the Terraform code. This automated workflow runs checks to ensure that the code is syntactically correct and 
+  follows best practices before deployment.
+ 
 
 ### Cleanup
 To destroy the infrastructure, run:
-terraform destroy -auto-approve
+`terraform destroy -auto-approve`
 
 
